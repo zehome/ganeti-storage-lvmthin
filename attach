@@ -1,0 +1,12 @@
+#!/bin/bash
+
+. etc/settings.sh
+
+lvchange -ay /dev/$EXTP_VGNAME/$VOL_NAME
+
+echo --- attach --- `date` >> $LOG
+echo disk_vg: $EXTP_VGNAME >> $LOG
+echo disk_vol: $VOL_NAME >> $LOG
+
+# Return path to blockdevice
+echo -n /dev/$EXTP_VGNAME/$VOL_NAME

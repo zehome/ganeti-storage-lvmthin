@@ -1,0 +1,9 @@
+#!/bin/bash
+
+. etc/settings.sh
+
+lvchange -an /dev/$EXTP_VGNAME/$VOL_NAME
+
+echo --- detach --- `date` >> $LOG
+echo disk_vg: $EXTP_VGNAME >> $LOG
+echo disk_vol: $VOL_NAME >> $LOG

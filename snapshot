@@ -1,0 +1,10 @@
+#!/bin/bash
+
+. etc/settings.sh
+
+lvcreate -s -n $VOL_SNAPSHOT_NAME /dev/$EXTP_VGNAME/$VOL_NAME
+
+echo --- snapshot --- `date` >> $LOG
+echo disk_vg: $EXTP_VGNAME >> $LOG
+echo disk_vol: $VOL_NAME >> $LOG
+echo snap_vol: $VOL_SNAPSHOT_NAME >> $LOG

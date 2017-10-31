@@ -1,0 +1,11 @@
+#!/bin/bash
+
+. etc/settings.sh
+
+test -e /dev/$EXTP_VGNAME/$VOL_NAME || lvcreate -V ${VOL_SIZE}M -n $VOL_NAME -T $EXTP_VGNAME/$EXTP_THINPOOL
+
+echo --- create --- `date` >> $LOG
+echo disk_vg: $EXTP_VGNAME >> $LOG
+echo disk_thinpool: $EXTP_THINPOOL >> $LOG
+echo disk_vol: $VOL_NAME >> $LOG
+echo disk_size: $VOL_SIZE >> $LOG

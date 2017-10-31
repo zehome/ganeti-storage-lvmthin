@@ -1,0 +1,9 @@
+#!/bin/bash
+
+. etc/settings.sh
+
+lvremove -f /dev/$EXTP_VGNAME/$VOL_NAME
+
+echo --- remove --- `date` >> $LOG
+echo disk_vg: $EXTP_VGNAME >> $LOG
+echo disk_vol: $VOL_NAME >> $LOG

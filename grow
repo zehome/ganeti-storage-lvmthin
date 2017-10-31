@@ -1,0 +1,10 @@
+#!/bin/bash
+
+. etc/settings.sh
+
+lvresize -L ${VOL_NEW_SIZE}M /dev/$EXTP_VGNAME/$VOL_NAME
+
+echo --- grow --- `date` >> $LOG
+echo disk_size_new: $VOL_NEW_SIZE >> $LOG
+echo disk_vg: $EXTP_VGNAME >> $LOG
+echo disk_vol: $VOL_NAME >> $LOG
